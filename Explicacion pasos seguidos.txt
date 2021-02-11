@@ -1,0 +1,36 @@
+- Para las direcciones de las ciudades en la columna del excel puse ayuntamiento de tal ciudad y me salio en la codificacion 133 de 180.
+
+- En el QGIS usamos la pestaña MMQGIS luego pinchas Geocode y despues Geocode CSV with web service (el CSV se guarda en el excel de esa manera UTF-8 separado por comas)
+
+- Para poner el mapa debajo web-- Osm --- Osm standard
+
+- Para ayudar a que salieran mas codificaciones use la pagina de OpenStreetMap y Nominatim copiando y pegando direcciones (es en el que se basa geocode).
+		-Copio directamente con el mismo formato las direcciones de la pagina web de OpenStreetMap (No sirve, salen hasta menos)
+		-Cambio el formato sale mal igual que antes
+		-Quito los acentos, y pongo n en vez de ñ y sigue igual (No se que cojones pasa)
+		-quito la palabra Espana (sin ñ) y aparecen 30 pueblos mas del tiron. (Puede que en vez de quitar los acentos hay que quitar las palabras con acento).
+		-quito los codigos postales y las comunidades autonomas y no pasa nada.
+
+- Al final me salen 169 de 186
+
+- Cojo el resultado de la codificacion y lo paso a csv y luego a excels para escribir los puntos a mano:
+	en google maps marco el punto con el boton derecho y me sale las coordenadas al pinchar se guarda en el portapapeles.
+	Si tenemos la latitud y la longitud en la misma columna para separlas :
+		Datos ----> Texto en columnas ----->En el paso 3 tenemos que poner en texto las dos columnas 	OJOOOOOOO
+
+Capa > Añadir capa > Añadir capa de texto delimitado (por esta razon separo longitud y latitud en 2 columnas.
+
+Si nos fijamos el SRC es 25830 que es el de España (ETRS89/UTM zone 30N), a la hora de pasar los datos a POSTGIS tenemos que fijarnos en poner el SRID (4326 O 25830)mirandolo en la capa de QGIS
+
+Pasando los datos a POSTGIS TIENES QUE REVISAR QUE NINGUN DATO(NI EN LA CARPETA, NI EN EL FICHERO) LLEVE UNA LETRA Ñ NI ACENTOS NI NADA
+
+
+CONEXION 
+
+
+- He querido añadir una columna al excel. Me he quedado bloqueado porque al pasar el CSV a QGIS para luego hacerlo shp, al abrir el fichero CSV tengo que poner la casilla de el SEPARADOR DECIMAL ES LA COMA para que salga bien tengo que activar esa casilla
+
+
+
+
+
